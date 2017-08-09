@@ -19,7 +19,7 @@ workflow Get-AzureVMTutorial
     }
 
     #Connect to your Azure Account
-    $Account = Add-AzureAccount -Credential $Cred
+    $Account = Add-AzureRMAccount -Credential $Cred
     if(!$Account) {
         Throw "Could not authenticate to Azure using the credential asset '${CredentialAssetName}'. Make sure the user name and password are correct."
     }
@@ -28,7 +28,7 @@ workflow Get-AzureVMTutorial
     #Select-AzureSubscription -SubscriptionName "TODO: your Azure subscription name here"
     
     #Get all the VMs you have in your Azure subscription
-    $VMs = Get-AzureVM
+    $VMs = Get-AzureRmVM
 
     #Print out up to 10 of those VMs
     if(!$VMs) {
